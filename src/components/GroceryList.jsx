@@ -1,6 +1,6 @@
 import SingleGrocery from "./SingleGrocery";
 
-const GroceryList = ({ groceryList, removeButton, onSetEditAbleGroceryId }) => {
+const GroceryList = ({ groceryList, removeButton, onEnableEditMode }) => {
   return (
     <ul className="space-y-2">
       {groceryList.map((grocery) => (
@@ -8,7 +8,7 @@ const GroceryList = ({ groceryList, removeButton, onSetEditAbleGroceryId }) => {
           key={grocery.id}
           {...grocery}
           removeButton={removeButton}
-          onSetEditAbleGroceryId={onSetEditAbleGroceryId}
+          onEnableEditMode={onEnableEditMode}
         />
       ))}
       {/* <span class="text-lg text-gray-800">Egg</span> */}
