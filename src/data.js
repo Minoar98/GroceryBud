@@ -2,6 +2,7 @@ const groceryItems = [
   {
     id: 1,
     title: "Eggs",
+    isEdit:false,
   },
   {
     id: 2,

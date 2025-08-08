@@ -33,6 +33,7 @@ const InputField = ({ editGroceryId, title, onAddGrocery, onSetTitle, onEditItem
     onAddGrocery({
       id: Date.now().toString(),
       title, // ES6
+      isEdit:false
     });
 
     onSetTitle("");

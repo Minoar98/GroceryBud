@@ -4,7 +4,6 @@ import ClearButton from "./components/ClearButton";
 import GroceryList from "./components/GroceryList";
 import Header from "./components/Header";
 import InputField from "./components/InputField";
-import EditField from "./components/EditField";
 
 // import data from "./data";
 
@@ -42,7 +41,7 @@ function App() {
   };
 
   const enableEditMode = (id) => {
-    console.log('edit mode on: ', {id})
+    console.log("edit mode on: ", { id });
 
     // 1. search to the main state by id
     const editableItem = groceryList.find((grocery) => grocery.id === id);
@@ -55,26 +54,26 @@ function App() {
 
     // 4. update the edit item id accordingly as well to detect that it's a edit mode
     setEditGroceryId(id);
-  }
+  };
 
   const editItem = (title) => {
-      // 1. update the grocery list with newly created object
-      setGroceryList((prevState) => {
-        return prevState.map((state) => {
-          if (state.id === editGroceryId) {
-            return {...state, title}
-          } else {
-            return state;
-          }
-        })
-      })
+    // 1. update the grocery list with newly created object
+    setGroceryList((prevState) => {
+      return prevState.map((state) => {
+        if (state.id === editGroceryId) {
+          return { ...state, title, isEdit: false };
+        } else {
+          return state;
+        }
+      });
+    });
 
-      // 2. title should be ''
-      setTitle("");
+    // 2. title should be ''
+    setTitle("");
 
-      // 3. editableId should be 'null'
-      setEditGroceryId(null)
-  }
+    // 3. editableId should be 'null'
+    setEditGroceryId(null);
+  };
 
   return (
     <main className="h-screen">
@@ -91,8 +90,20 @@ function App() {
           groceryList={groceryList}
           removeButton={removeButton}
           onEnableEditMode={enableEditMode}
+          editGroceryId={editGroceryId}
         />
-        <ClearButton onClearHandler={ClearHandler} />
+        {/* {groceryList.length >= 1 ? (
+          <ClearButton onClearHandler={ClearHandler} />
+          ) : (
+            <></>
+            )} */}
+        {/* used short circuit */}
+        {groceryList.length >= 1 && (
+          <ClearButton onClearHandler={ClearHandler} />
+        )}
+        {/* {!(groceryList.length >= 1) || (
+          <ClearButton onClearHandler={ClearHandler} />
+        )} */}
       </section>
     </main>
   );
