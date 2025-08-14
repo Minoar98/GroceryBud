@@ -61,7 +61,7 @@ function App() {
     setGroceryList((prevState) => {
       return prevState.map((state) => {
         if (state.id === editGroceryId) {
-          return { ...state, title, isEdit: false };
+          return { ...state, title, isEdit: true };
         } else {
           return state;
         }

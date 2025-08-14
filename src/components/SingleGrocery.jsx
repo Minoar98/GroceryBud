@@ -10,9 +10,9 @@ const SingleGrocery = ({
   console.log("isEdit:---", isEdit);
   return (
     <li
-      className={`flex justify-between items-center px-4 py-2 bg-white border border-gray-200 rounded hover:bg-gray-100 ${
-        isEdit ? "bg-blue-400" : ""
-      }`}
+      className={`flex justify-between items-center px-4 py-2 border border-gray-200 rounded hover:bg-gray-100 
+        ${isEdit ? "bg-blue-100" : " bg-white"} 
+      `}
     >
       <span className="text-lg text-gray-800">{title}</span>
       <div className="space-x-2">
